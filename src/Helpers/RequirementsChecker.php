@@ -1,6 +1,6 @@
 <?php
 
-namespace RachidLaasri\LaravelInstaller\Helpers;
+namespace Delwathon\LaravelInstaller\Helpers;
 
 class RequirementsChecker
 {

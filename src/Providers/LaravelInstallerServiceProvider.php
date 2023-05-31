@@ -1,11 +1,11 @@
 <?php
 
-namespace RachidLaasri\LaravelInstaller\Providers;
+namespace Delwathon\LaravelInstaller\Providers;
 
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
-use RachidLaasri\LaravelInstaller\Middleware\canInstall;
-use RachidLaasri\LaravelInstaller\Middleware\canUpdate;
+use Delwathon\LaravelInstaller\Middleware\canInstall;
+use Delwathon\LaravelInstaller\Middleware\canUpdate;
 
 class LaravelInstallerServiceProvider extends ServiceProvider
 {

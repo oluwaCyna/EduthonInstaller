@@ -1,6 +1,6 @@
 <?php
 
-namespace RachidLaasri\LaravelInstaller\Middleware;
+namespace Delwathon\LaravelInstaller\Middleware;
 
 use Closure;
 use Redirect;

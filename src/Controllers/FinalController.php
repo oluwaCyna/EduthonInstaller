@@ -1,21 +1,21 @@
 <?php
 
-namespace RachidLaasri\LaravelInstaller\Controllers;
+namespace Delwathon\LaravelInstaller\Controllers;
 
 use Illuminate\Routing\Controller;
-use RachidLaasri\LaravelInstaller\Events\LaravelInstallerFinished;
-use RachidLaasri\LaravelInstaller\Helpers\EnvironmentManager;
-use RachidLaasri\LaravelInstaller\Helpers\FinalInstallManager;
-use RachidLaasri\LaravelInstaller\Helpers\InstalledFileManager;
+use Delwathon\LaravelInstaller\Events\LaravelInstallerFinished;
+use Delwathon\LaravelInstaller\Helpers\EnvironmentManager;
+use Delwathon\LaravelInstaller\Helpers\FinalInstallManager;
+use Delwathon\LaravelInstaller\Helpers\InstalledFileManager;
 
 class FinalController extends Controller
 {
     /**
      * Update installed file and display finished view.
      *
-     * @param \RachidLaasri\LaravelInstaller\Helpers\InstalledFileManager $fileManager
-     * @param \RachidLaasri\LaravelInstaller\Helpers\FinalInstallManager $finalInstall
-     * @param \RachidLaasri\LaravelInstaller\Helpers\EnvironmentManager $environment
+     * @param \Delwathon\LaravelInstaller\Helpers\InstalledFileManager $fileManager
+     * @param \Delwathon\LaravelInstaller\Helpers\FinalInstallManager $finalInstall
+     * @param \Delwathon\LaravelInstaller\Helpers\EnvironmentManager $environment
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function finish(InstalledFileManager $fileManager, FinalInstallManager $finalInstall, EnvironmentManager $environment)
