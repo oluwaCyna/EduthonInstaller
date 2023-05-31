@@ -24,8 +24,41 @@ return [
         'templateTitle' => 'Welcome',
         'title'   => 'Laravel Installer',
         'message' => 'Easy Installation and Setup Wizard.',
-        'next'    => 'Check Requirements',
+        'next'    => 'Verify Purchase Code',
     ],
+
+    /*
+     *
+     * Purchase page translations.
+     *
+     */
+    'purchase' => [
+        'menu' => [
+            'templateTitle' => 'Step 1 | Purchase Code',
+            'title' => 'Verify Purchase Code',
+            'desc' => 'Please enter the secret key and purchase code provided for you to verify this application.',
+            'wizard-button' => 'Form Wizard Setup',
+            'classic-button' => 'Classic Text Editor'
+        ],
+
+        'form' => [
+            'secret_key_required' => 'Scret key is required.',
+            'secret_key_label' => 'Scret Key',
+            'secret_key_placeholder' => 'sk-gdhfvg-jhfhk-224',
+            'purchase_code_required' => 'Secret key is required.',
+            'purchase_code_label' => 'Purchase Code',
+            'purchase_code_placeholder' => 'Enter your purchase code',
+
+            'buttons' => [
+                'setup_database' => 'Setup Database',
+                'setup_application' => 'Setup Application',
+                'install' => 'Vrify',
+            ],
+        ],
+        'success' => 'Your .env file settings have been saved.',
+        'errors' => 'Unable to save the .env file, Please create it manually.',
+    ],
+
 
     /*
      *
@@ -33,7 +66,7 @@ return [
      *
      */
     'requirements' => [
-        'templateTitle' => 'Step 1 | Server Requirements',
+        'templateTitle' => 'Step 2 | Server Requirements',
         'title' => 'Server Requirements',
         'next'    => 'Check Permissions',
     ],
@@ -44,7 +77,7 @@ return [
      *
      */
     'permissions' => [
-        'templateTitle' => 'Step 2 | Permissions',
+        'templateTitle' => 'Step 3 | Permissions',
         'title' => 'Permissions',
         'next' => 'Configure Environment',
     ],
@@ -56,14 +89,14 @@ return [
      */
     'environment' => [
         'menu' => [
-            'templateTitle' => 'Step 3 | Environment Settings',
+            'templateTitle' => 'Step 4 | Environment Settings',
             'title' => 'Environment Settings',
             'desc' => 'Please select how you want to configure the apps <code>.env</code> file.',
             'wizard-button' => 'Form Wizard Setup',
             'classic-button' => 'Classic Text Editor',
         ],
         'wizard' => [
-            'templateTitle' => 'Step 3 | Environment Settings | Guided Wizard',
+            'templateTitle' => 'Step 4 | Environment Settings | Guided Wizard',
             'title' => 'Guided <code>.env</code> Wizard',
             'tabs' => [
                 'environment' => 'Environment',
@@ -158,7 +191,7 @@ return [
             ],
         ],
         'classic' => [
-            'templateTitle' => 'Step 3 | Environment Settings | Classic Editor',
+            'templateTitle' => 'Step 4 | Environment Settings | Classic Editor',
             'title' => 'Classic Environment Editor',
             'save' => 'Save .env',
             'back' => 'Use Form Wizard',
