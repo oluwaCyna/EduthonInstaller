@@ -50,13 +50,11 @@ return [
             'purchase_code_placeholder' => 'Enter your purchase code',
 
             'buttons' => [
-                'setup_database' => 'Setup Database',
-                'setup_application' => 'Setup Application',
-                'install' => 'Vrify',
+                'install' => 'Verify',
             ],
         ],
-        'success' => 'Your .env file settings have been saved.',
-        'errors' => 'Unable to save the .env file, Please create it manually.',
+        'success' => 'Your purchase code has been saved.',
+        'errors' => 'Unable to verify the purchase code, Please make sure you input the correct data.',
     ],
 
 
@@ -196,6 +194,83 @@ return [
             'save' => 'Save .env',
             'back' => 'Use Form Wizard',
             'install' => 'Save and Install',
+        ],
+        'success' => 'Your .env file settings have been saved.',
+        'errors' => 'Unable to save the .env file, Please create it manually.',
+    ],
+
+    /*
+     *
+     * Application details page translations.
+     *
+     */
+    'application_details' => [
+        'menu' => [
+            'templateTitle' => 'Step 5 | Application Details',
+            'title' => 'Application Details',
+            'desc' => 'Please enter the details as you want.',
+            'tabs' => [
+                'login' => 'Login Details',
+                'school_info' => 'School Information',
+                'school_owner' => 'School Owner\'s details',
+            ],
+            'form' => [
+                'app_url_required' => 'An App URL is required.',
+                'app_url_label' => 'App URL',
+                'app_url_placeholder' => 'Enter your app url...',
+                'app_email_required' => 'App Login Email is required.',
+                'app_email_label' => 'App Login Email',
+                'app_email_placeholder' => 'Enter your app login email address...',
+                'app_password_required' => 'App Login Password is required.',
+                'app_password_label' => 'App Login Password',
+                'app_password_placeholder' => 'Enter your app login password...',
+
+                'school_name_required' => 'School Name is required.',
+                'school_name_label' => 'School Name',
+                'school_name_placeholder' => 'Enter your school name...',
+                'site_title_required' => 'Website Title is required.',
+                'site_title_label' => 'Site Title',
+                'site_title_placeholder' => 'Enter website title...',
+                'site_desc_required' => 'Website Description is required.',
+                'site_desc_label' => 'Website Description',
+                'site_desc_placeholder' => 'Enter website description...',
+                'site_keyword_required' => 'Website Keyword is required.',
+                'site_keyword_label' => 'Website Keyword',
+                'site_keyword_placeholder' => 'Enter website keywords...',
+                'support_email_required' => 'School Support Email Address is required.',
+                'support_email_label' => 'School Support Email Address',
+                'support_email_placeholder' => 'Enter school support email address...',
+                'support_phone_required' => 'School Support Phone Number is required.',
+                'support_phone_label' => 'School Support Phone Number',
+                'support_phone_placeholder' => 'Enter school support phone number...',
+                'session_required' => 'Start Session is required.',
+                'session_label' => 'Start Session',
+                'session_placeholder' => 'Enter school start session...',
+                'currency_required' => 'Currency is required.',
+                'currency_label' => 'Currency',
+                'currency_label_naira' => 'Naira',
+
+                'owner_fname_required' => 'First Name is required.',
+                'owner_fname_label' => 'First Name',
+                'owner_fname_placeholder' => 'Enter your first name...',
+                'owner_lname_required' => 'Last Name is required.',
+                'owner_lname_label' => 'Last Name',
+                'owner_lname_placeholder' => 'Enter your last name...',
+                'owner_gender_required' => 'Gender is required.',
+                'owner_gender_label' => 'Gender',
+                'owner_gender_label_male' => 'Male',
+                'owner_gender_label_female' => 'Female',
+                'owner_gender_label_none' => 'Select a gender',
+                'owner_phone_required' => 'Phone number is required.',
+                'owner_phone_label' => 'Phone Number',
+                'owner_phone_placeholder' => 'Enter your phone number...',
+                
+                'buttons' => [
+                    'setup_school_info' => 'Setup School Information',
+                    'setup_owner_details' => 'Setup Owner\'s Details',
+                    'install' => 'Install',
+                ],
+            ],
         ],
         'success' => 'Your .env file settings have been saved.',
         'errors' => 'Unable to save the .env file, Please create it manually.',

@@ -11,6 +11,16 @@ Route::group(['prefix' => 'install', 'as' => 'LaravelInstaller::', 'namespace' =
         'uses' => 'PurchaseController@purchase',
     ]);
 
+    Route::get('application-details', [
+        'as' => 'applicationDetails',
+        'uses' => 'ApplicationDetailsController@applicationDetails',
+    ]);
+
+    Route::post('application-details', [
+        'as' => 'applicationDetailsSave',
+        'uses' => 'ApplicationDetailsController@applicationDetailsSave',
+    ]);
+
     Route::get('environment', [
         'as' => 'environment',
         'uses' => 'EnvironmentController@environmentMenu',
