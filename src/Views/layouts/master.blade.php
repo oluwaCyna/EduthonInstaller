@@ -32,10 +32,10 @@
                     <li class="step__item {{ isActive('LaravelInstaller::applicationDetails')}}">
                         @if(Request::is('install/application-details') )
                             <a href="{{ route('LaravelInstaller::applicationDetails') }}">
-                                <i class="step__icon fa fa-cog" aria-hidden="true"></i>
+                                <i class="step__icon fa fa-info-circle" aria-hidden="true"></i>
                             </a>
                         @else
-                            <i class="step__icon fa fa-cog" aria-hidden="true"></i>
+                            <i class="step__icon fa fa-info-circle" aria-hidden="true"></i>
                         @endif
                     </li>
                     <li class="step__divider"></li>
@@ -72,10 +72,10 @@
                     <li class="step__item {{ isActive('LaravelInstaller::purchase') }}">
                         @if(Request::is('install') || Request::is('install/requirements') || Request::is('install/permissions') || Request::is('install/environment') || Request::is('install/environment/wizard') || Request::is('install/environment/classic') || Request::is('install/application-details'))
                             <a href="{{ route('LaravelInstaller::purchase') }}">
-                                <i class="step__icon fa fa-list" aria-hidden="true"></i>
+                                <i class="step__icon fa fa-check-circle" aria-hidden="true"></i>
                             </a>
                         @else
-                            <i class="step__icon fa fa-list" aria-hidden="true"></i>
+                            <i class="step__icon fa fa-check-circle" aria-hidden="true"></i>
                         @endif
                     </li>
                     <li class="step__divider"></li>

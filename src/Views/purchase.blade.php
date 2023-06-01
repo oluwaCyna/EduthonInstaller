@@ -11,7 +11,7 @@
 
 @section('container')
 
-        <form method="post" action="{{ route('LaravelInstaller::environmentSaveWizard') }}" class="tabs-wrap">
+        <form method="post" action="{{ route('LaravelInstaller::verifyPurchase') }}" class="tabs-wrap">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                 <div class="form-group {{ $errors->has('secret_key') ? ' has-error ' : '' }}">

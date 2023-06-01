@@ -11,6 +11,11 @@ Route::group(['prefix' => 'install', 'as' => 'LaravelInstaller::', 'namespace' =
         'uses' => 'PurchaseController@purchase',
     ]);
 
+    Route::post('purchase/verify', [
+        'as' => 'verifyPurchase',
+        'uses' => 'PurchaseController@verifyPurchase',
+    ]);
+
     Route::get('application-details', [
         'as' => 'applicationDetails',
         'uses' => 'ApplicationDetailsController@applicationDetails',

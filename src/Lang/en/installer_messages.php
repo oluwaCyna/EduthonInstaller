@@ -44,7 +44,7 @@ return [
         'form' => [
             'secret_key_required' => 'Scret key is required.',
             'secret_key_label' => 'Scret Key',
-            'secret_key_placeholder' => 'sk-gdhfvg-jhfhk-224',
+            'secret_key_placeholder' => 'Enter your secret key',
             'purchase_code_required' => 'Secret key is required.',
             'purchase_code_label' => 'Purchase Code',
             'purchase_code_placeholder' => 'Enter your purchase code',
