@@ -2,9 +2,12 @@
 
 namespace Delwathon\LaravelInstaller\Controllers;
 
-use Illuminate\Routing\Controller;
 use Delwathon\LaravelInstaller\Helpers\PurchaseChecker;
-use GuzzleHttp\Psr7\Request;
+use Exception;
+use Illuminate\Routing\Controller;
+use Illuminate\Routing\Redirector;
+use Illuminate\Http\Request;
+use Validator;
 
 class PurchaseController extends Controller
 {
@@ -23,9 +26,52 @@ class PurchaseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function verifyPurchase(Request $request)
+    public function verifyPurchase(Request $request, Redirector $redirect)
     {
         $purchaseChecker = new PurchaseChecker($request);
+
+        $rules = config('installer.purchase.form.rules');
+        $messages = [
+            'environment_custom.required_if' => trans('installer_messages.purchase.form.name_required'),
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        if ($validator->fails()) {
+            return $redirect->route('LaravelInstaller::purchase')->withInput()->withErrors($validator->errors());
+        }
+
+        try {
+            $header = array(
+                'Content-Type: application/json'
+            );
+            $secretKeyresponse = $purchaseChecker->apiPostRequestCall(config('installer.purchase.api.authenticate'), $header, array('secret_key' => $purchaseChecker->getSecretKey()));            
+            if ($secretKeyresponse->message === 'success') {
+                $header = array(
+                    'Authorization: Bearer ' . $secretKeyresponse->token,
+                    'Content-Type: application/json'
+                );
+                $data =  array(
+                    'purchase_code' => $purchaseChecker->getPurchaseCode(),
+                    'client_id' => $secretKeyresponse->user_id
+                );
+
+                try {
+                    $purchaseCodeResponse = $purchaseChecker->apiPostRequestCall(config('installer.purchase.api.verify'), $header, $data);
+                    if ($purchaseCodeResponse->message === 'success') {
+
+                        return $redirect->route('LaravelInstaller::requirements');
+                    } else {
+                        return $redirect->route('LaravelInstaller::purchase')->withInput()->withErrors($purchaseCodeResponse->message);
+                    }
+                } catch (Exception $e) {
+                    return $redirect->route('LaravelInstaller::purchase')->withInput()->withErrors($e->getMessage());
+                }
+            } else {
+                return $redirect->route('LaravelInstaller::purchase')->withInput()->withErrors($secretKeyresponse->message);
+            }
+        } catch (Exception $e) {
+            return $redirect->route('LaravelInstaller::purchase')->withInput()->withErrors($e->getMessage());
+        }
     }
-    
 }

@@ -50,6 +50,29 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Purchase Form Validation Rules & Messages
+    |--------------------------------------------------------------------------
+    |
+    | This are the default form field validation rules. Available Rules:
+    | https://laravel.com/docs/5.4/validation#available-validation-rules
+    |
+    */
+    'purchase' => [
+        'api' => [
+            'authenticate' => 'https://eduthonpc.delwathon.com/api/authenticate',
+            'verify' => 'https://eduthonpc.delwathon.com/api/verify',
+        ],
+        'form' => [
+            'rules' => [
+                'secret_key'     => 'required|string|max:50',
+                'purchase_code'   => 'required|string|max:50',
+            ],
+        ],
+    ],
+
+
+    /*
+    |--------------------------------------------------------------------------
     | Environment Form Wizard Validation Rules & Messages
     |--------------------------------------------------------------------------
     |
