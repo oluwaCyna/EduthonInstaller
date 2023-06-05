@@ -6,7 +6,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
-class EnvironmentManager
+class PurchaseChecker
 {
     /**
      * @var string
@@ -66,6 +66,6 @@ class EnvironmentManager
         ));
         $response = curl_exec($ch);
 
-        return $response;
+        return (json_decode($response));
     }
 }

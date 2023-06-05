@@ -71,10 +71,6 @@ class FinalController extends Controller
             'status' => 'inactive'
             ]);
         }
-        function makeSession () {
-
-        }
-
         session()->forget('application_details');
 
         return view('vendor.installer.finished', compact('finalMessages', 'finalStatusMessage', 'finalEnvFile'));
