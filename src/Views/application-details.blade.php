@@ -182,10 +182,10 @@
                     </label>
                     <select name="currency" id="currency">
                         <option selected disabled>{{ trans('installer_messages.application_details.menu.form.currency_label_none') }}</option>
-                        <option value="1" selected>{{ trans('installer_messages.application_details.menu.form.currency_label_naira') }}</option>
-                        <option value="2" selected>{{ trans('installer_messages.application_details.menu.form.currency_label_usd') }}</option>
-                        <option value="3" selected>{{ trans('installer_messages.application_details.menu.form.currency_label_euro') }}</option>
-                        <option value="4" selected>{{ trans('installer_messages.application_details.menu.form.currency_label_pounds') }}</option>
+                        <option value="1">{{ trans('installer_messages.application_details.menu.form.currency_label_naira') }}</option>
+                        <option value="2">{{ trans('installer_messages.application_details.menu.form.currency_label_usd') }}</option>
+                        <option value="3">{{ trans('installer_messages.application_details.menu.form.currency_label_euro') }}</option>
+                        <option value="4">{{ trans('installer_messages.application_details.menu.form.currency_label_pounds') }}</option>
                     </select>
                     @if ($errors->has('currency'))
                         <span class="error-block">

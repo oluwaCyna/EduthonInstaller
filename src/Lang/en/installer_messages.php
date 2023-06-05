@@ -248,7 +248,7 @@ return [
                 'session_placeholder' => 'Enter school start session like 2021/2022',
                 'currency_required' => 'Currency is required.',
                 'currency_label' => 'Currency',
-                'currency_label_none' => 'Select a gender',
+                'currency_label_none' => 'Select currency',
                 'currency_label_naira' => 'Naira',
                 'currency_label_usd' => 'US Dollar',
                 'currency_label_euro' => 'Euro',
