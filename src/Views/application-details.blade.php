@@ -14,21 +14,21 @@
 
         <input id="tab1" type="radio" name="tabs" class="tab-input" checked />
         <label for="tab1" class="tab-label">
-            <i class="fa fa-cog fa-2x fa-fw" aria-hidden="true"></i>
+            <i class="fa fa-sign-in fa-2x fa-fw" aria-hidden="true"></i>
             <br />
             {{ trans('installer_messages.application_details.menu.tabs.login') }}
         </label>
 
         <input id="tab2" type="radio" name="tabs" class="tab-input" />
         <label for="tab2" class="tab-label">
-            <i class="fa fa-database fa-2x fa-fw" aria-hidden="true"></i>
+            <i class="fa fa-asterisk fa-2x fa-fw" aria-hidden="true"></i>
             <br />
             {{ trans('installer_messages.application_details.menu.tabs.school_info') }}
         </label>
 
         <input id="tab3" type="radio" name="tabs" class="tab-input" />
         <label for="tab3" class="tab-label">
-            <i class="fa fa-cogs fa-2x fa-fw" aria-hidden="true"></i>
+            <i class="fa fa-user fa-2x fa-fw" aria-hidden="true"></i>
             <br />
             {{ trans('installer_messages.application_details.menu.tabs.school_owner') }}
         </label>
@@ -181,6 +181,7 @@
                         {{ trans('installer_messages.application_details.menu.form.currency_label') }}
                     </label>
                     <select name="currency" id="currency">
+                        <option selected disabled>{{ trans('installer_messages.application_details.menu.form.currency_label_none') }}</option>
                         <option value="1" selected>{{ trans('installer_messages.application_details.menu.form.currency_label_naira') }}</option>
                         <option value="2" selected>{{ trans('installer_messages.application_details.menu.form.currency_label_usd') }}</option>
                         <option value="3" selected>{{ trans('installer_messages.application_details.menu.form.currency_label_euro') }}</option>

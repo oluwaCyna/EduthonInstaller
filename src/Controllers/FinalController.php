@@ -24,19 +24,14 @@ class FinalController extends Controller
      */
     public function finish(InstalledFileManager $fileManager, FinalInstallManager $finalInstall, EnvironmentManager $environment)
     {
-        $finalMessages = $finalInstall->runFinal();
-        $finalStatusMessage = $fileManager->update();
-        $finalEnvFile = $environment->getEnvContent();
+        $details = json_decode($_COOKIE['application_details']);
 
-        event(new LaravelInstallerFinished);
-
-        // set the details
-        $details = session('application_details');
         GlobalSetting::create([
             'name' => $details->school_name,
             'title' => $details->site_title,
             'description' => $details->site_desc,
-            'keywords' => $details->site_keywords,
+            'keywords' => json_encode([$details->site_keyword]),
+            'db_dump' => 60,
             'mobile' => $details->support_phone,
             'email' => $details->support_email,
             'currency_id' => $details->currency,
@@ -52,7 +47,7 @@ class FinalController extends Controller
         Employee::create([
             'user_id' => $user->id,
             'gender' => $details->owner_gender,
-            'phone' => $details->owner_phone
+            'mobile' => $details->owner_phone,
         ]);
         $user->assignRole(2);
 
@@ -65,13 +60,18 @@ class FinalController extends Controller
         $s_session = intval($session[0]);
         $e_session = intval($session[1]);
 
-        for ($i = 1; $i < 10; $i ++) {
+        for ($i = 1; $i < 10; $i++) {
             Session::create([
-            'name' => strval($s_session + $i) . "/" . strval($e_session + $i),
-            'status' => 'inactive'
+                'name' => strval($s_session + $i) . "/" . strval($e_session + $i),
+                'status' => 'inactive'
             ]);
         }
-        session()->forget('application_details');
+
+        $finalMessages = $finalInstall->runFinal();
+        $finalStatusMessage = $fileManager->update();
+        $finalEnvFile = $environment->getEnvContent();
+
+        event(new LaravelInstallerFinished);
 
         return view('vendor.installer.finished', compact('finalMessages', 'finalStatusMessage', 'finalEnvFile'));
     }

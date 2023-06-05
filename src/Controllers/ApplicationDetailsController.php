@@ -39,8 +39,8 @@ class ApplicationDetailsController extends Controller
             return $redirect->route('LaravelInstaller::applicationDetails')->withInput()->withErrors($validator->errors());
         }
 
-        // Store the valiadated details in session
-        session(['application_details' => $request->all()]);
+        // Store the valiadated details in cookies
+        setcookie('application_details', json_encode($request->all()), time()+60*60*24*365);
 
         return $redirect->route('LaravelInstaller::environment');
     }
