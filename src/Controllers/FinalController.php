@@ -42,7 +42,7 @@ class FinalController extends Controller
             'firstname' => $details->owner_fname,
             'lastname' => $details->owner_lname,
             'email' => $details->app_email,
-            'password' => Hash::make($details->app_password);
+            'password' => Hash::make($details->app_password)
         ]);
 
         Employee::create([
