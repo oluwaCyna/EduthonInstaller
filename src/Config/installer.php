@@ -115,6 +115,37 @@ return [
         ],
     ],
 
+        /*
+    |--------------------------------------------------------------------------
+    | Application Details Validation Rules & Messages
+    |--------------------------------------------------------------------------
+    |
+    | This are the default form field validation rules. Available Rules:
+    | https://laravel.com/docs/5.4/validation#available-validation-rules
+    |
+    */
+    'application_details' => [
+        'form' => [
+            'rules' => [
+                'app_url'              => 'required|url',
+                'app_email'           => 'required|email',
+                'app_password'    => 'required|string',
+                'school_name'             => 'required|string',
+                'site_title'         => 'required|string',
+                'site_desc'               => 'required|string',
+                'site_keyword'   => 'required|string',
+                'support_email'     => 'required|email',
+                'support_phone'         => 'required',
+                'session'         => 'required|string',
+                'currency'     => 'required|string',
+                'owner_fname'     => 'required|string',
+                'owner_lname'      => 'required|string',
+                'owner_gender'          => 'required|string',
+                'owner_phone'        => 'required|string',
+            ],
+        ],
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Installed Middleware Options

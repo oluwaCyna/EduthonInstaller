@@ -41,7 +41,7 @@
                     <label for="app_url">
                         {{ trans('installer_messages.application_details.menu.form.app_url_label') }}
                     </label>
-                    <input type="url" name="app_url" id="app_url" value="" placeholder="{{ trans('installer_messages.application_details.menu.form.app_url_placeholder') }}" />
+                    <input type="text" name="app_url" id="app_url" value="{{ old('app_url') }}" placeholder="{{ trans('installer_messages.application_details.menu.form.app_url_placeholder') }}" />
                     @if ($errors->has('app_url'))
                         <span class="error-block">
                             <i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i>
@@ -54,7 +54,7 @@
                     <label for="app_email">
                         {{ trans('installer_messages.application_details.menu.form.app_email_label') }}
                     </label>
-                    <input type="text" name="app_email" id="app_email" value="" placeholder="{{ trans('installer_messages.application_details.menu.form.app_email_placeholder') }}" />
+                    <input type="text" name="app_email" id="app_email" value="{{ old('app_email') }}" placeholder="{{ trans('installer_messages.application_details.menu.form.app_email_placeholder') }}" />
                     @if ($errors->has('app_email'))
                         <span class="error-block">
                             <i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i>
@@ -67,7 +67,7 @@
                     <label for="app_password">
                         {{ trans('installer_messages.application_details.menu.form.app_password_label') }}
                     </label>
-                    <input type="password" name="app_password" id="app_password" value="" placeholder="{{ trans('installer_messages.application_details.menu.form.app_password_placeholder') }}" />
+                    <input type="text" name="app_password" id="app_password" value="{{ old('app_password') }}" placeholder="{{ trans('installer_messages.application_details.menu.form.app_password_placeholder') }}" />
                     @if ($errors->has('app_password'))
                         <span class="error-block">
                             <i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i>
@@ -89,7 +89,7 @@
                     <label for="school_name">
                         {{ trans('installer_messages.application_details.menu.form.school_name_label') }}
                     </label>
-                    <input type="text" name="school_name" id="school_name" value="" placeholder="{{ trans('installer_messages.application_details.menu.form.school_name_placeholder') }}" />
+                    <input type="text" name="school_name" id="school_name" value="{{ old('school_name') }}" placeholder="{{ trans('installer_messages.application_details.menu.form.school_name_placeholder') }}" />
                     @if ($errors->has('school_name'))
                         <span class="error-block">
                             <i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i>
@@ -102,7 +102,7 @@
                     <label for="site_title">
                         {{ trans('installer_messages.application_details.menu.form.site_title_label') }}
                     </label>
-                    <input type="text" name="site_title" id="site_title" value="" placeholder="{{ trans('installer_messages.application_details.menu.form.site_title_placeholder') }}" />
+                    <input type="text" name="site_title" id="site_title" value="{{ old('site_title') }}" placeholder="{{ trans('installer_messages.application_details.menu.form.site_title_placeholder') }}" />
                     @if ($errors->has('site_title'))
                         <span class="error-block">
                             <i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i>
@@ -115,7 +115,7 @@
                     <label for="site_desc">
                         {{ trans('installer_messages.application_details.menu.form.site_desc_label') }}
                     </label>
-                    <textarea name="site_desc" id="site_desc" value="" rows="2" >{{ trans('installer_messages.application_details.menu.form.site_desc_placeholder') }} </textarea>
+                    <textarea name="site_desc" id="site_desc" value="{{ old('site_desc') }}" rows="2" >{{ trans('installer_messages.application_details.menu.form.site_desc_placeholder') }} </textarea>
                     @if ($errors->has('site_desc'))
                         <span class="error-block">
                             <i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i>
@@ -128,7 +128,7 @@
                     <label for="site_keyword">
                         {{ trans('installer_messages.application_details.menu.form.site_keyword_label') }}
                     </label>
-                    <input type="text" name="site_keyword" id="site_keyword" value="" placeholder="{{ trans('installer_messages.application_details.menu.form.site_keyword_placeholder') }}" />
+                    <input type="text" name="site_keyword" id="site_keyword" value="{{ old('site_keyword') }}" placeholder="{{ trans('installer_messages.application_details.menu.form.site_keyword_placeholder') }}" />
                     @if ($errors->has('site_keyword'))
                         <span class="error-block">
                             <i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i>
@@ -141,7 +141,7 @@
                     <label for="support_email">
                         {{ trans('installer_messages.application_details.menu.form.support_email_label') }}
                     </label>
-                    <input type="text" name="support_email" id="support_email" value="" placeholder="{{ trans('installer_messages.application_details.menu.form.support_email_placeholder') }}" />
+                    <input type="text" name="support_email" id="support_email" value="{{ old('support_email') }}" placeholder="{{ trans('installer_messages.application_details.menu.form.support_email_placeholder') }}" />
                     @if ($errors->has('support_email'))
                         <span class="error-block">
                             <i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i>
@@ -154,7 +154,7 @@
                     <label for="support_phone">
                         {{ trans('installer_messages.application_details.menu.form.support_phone_label') }}
                     </label>
-                    <input type="text" name="support_phone" id="support_phone" value="" placeholder="{{ trans('installer_messages.application_details.menu.form.support_phone_placeholder') }}" />
+                    <input type="text" name="support_phone" id="support_phone" value="{{ old('support_phone') }}" placeholder="{{ trans('installer_messages.application_details.menu.form.support_phone_placeholder') }}" />
                     @if ($errors->has('support_phone'))
                         <span class="error-block">
                             <i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i>
@@ -167,7 +167,7 @@
                     <label for="session">
                         {{ trans('installer_messages.application_details.menu.form.session_label') }}
                     </label>
-                    <input type="text" name="session" id="session" value="" placeholder="{{ trans('installer_messages.application_details.menu.form.session_placeholder') }}" />
+                    <input type="text" name="session" id="session" value="{{ old('session') }}" placeholder="{{ trans('installer_messages.application_details.menu.form.session_placeholder') }}" />
                     @if ($errors->has('session'))
                         <span class="error-block">
                             <i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i>
@@ -181,7 +181,10 @@
                         {{ trans('installer_messages.application_details.menu.form.currency_label') }}
                     </label>
                     <select name="currency" id="currency">
-                        <option value="NGN" selected>{{ trans('installer_messages.application_details.menu.form.currency_label_naira') }}</option>
+                        <option value="1" selected>{{ trans('installer_messages.application_details.menu.form.currency_label_naira') }}</option>
+                        <option value="2" selected>{{ trans('installer_messages.application_details.menu.form.currency_label_usd') }}</option>
+                        <option value="3" selected>{{ trans('installer_messages.application_details.menu.form.currency_label_euro') }}</option>
+                        <option value="4" selected>{{ trans('installer_messages.application_details.menu.form.currency_label_pounds') }}</option>
                     </select>
                     @if ($errors->has('currency'))
                         <span class="error-block">
@@ -204,7 +207,7 @@
                     <label for="owner_fname">
                         {{ trans('installer_messages.application_details.menu.form.owner_fname_label') }}
                     </label>
-                    <input type="text" name="owner_fname" id="owner_fname" value="" placeholder="{{ trans('installer_messages.application_details.menu.form.owner_fname_placeholder') }}" />
+                    <input type="text" name="owner_fname" id="owner_fname" value="{{ old('owner_fname') }}" placeholder="{{ trans('installer_messages.application_details.menu.form.owner_fname_placeholder') }}" />
                     @if ($errors->has('owner_fname'))
                         <span class="error-block">
                             <i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i>
@@ -217,7 +220,7 @@
                     <label for="owner_lname">
                         {{ trans('installer_messages.application_details.menu.form.owner_lname_label') }}
                     </label>
-                    <input type="text" name="owner_lname" id="owner_lname" value="" placeholder="{{ trans('installer_messages.application_details.menu.form.owner_lname_placeholder') }}" />
+                    <input type="text" name="owner_lname" id="owner_lname" value="{{ old('owner_lname') }}" placeholder="{{ trans('installer_messages.application_details.menu.form.owner_lname_placeholder') }}" />
                     @if ($errors->has('owner_lname'))
                         <span class="error-block">
                             <i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i>
@@ -247,7 +250,7 @@
                     <label for="owner_phone">
                         {{ trans('installer_messages.application_details.menu.form.owner_phone_label') }}
                     </label>
-                    <input type="text" name="owner_phone" id="owner_phone" value="" placeholder="{{ trans('installer_messages.application_details.menu.form.owner_phone_placeholder') }}" />
+                    <input type="text" name="owner_phone" id="owner_phone" value="{{ old('owner_phone') }}" placeholder="{{ trans('installer_messages.application_details.menu.form.owner_phone_placeholder') }}" />
                     @if ($errors->has('owner_phone'))
                         <span class="error-block">
                             <i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i>
@@ -259,7 +262,7 @@
 
                 <div class="buttons">
                     <button class="button" type="submit">
-                        {{ trans('installer_messages.application_details.menu.form.buttons.install') }}
+                        {{ trans('installer_messages.application_details.menu.form.buttons.save') }}
                         <i class="fa fa-angle-right fa-fw" aria-hidden="true"></i>
                     </button>
                 </div>

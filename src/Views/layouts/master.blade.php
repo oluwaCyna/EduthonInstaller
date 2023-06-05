@@ -29,6 +29,16 @@
                         <i class="step__icon fa fa-server" aria-hidden="true"></i>
                     </li>
                     <li class="step__divider"></li>
+                    <li class="step__item {{ isActive('LaravelInstaller::environment')}} {{ isActive('LaravelInstaller::environmentWizard')}} {{ isActive('LaravelInstaller::environmentClassic')}}">
+                        @if(Request::is('install/environment/wizard') || Request::is('install/environment/classic'))
+                            <a href="{{ route('LaravelInstaller::environment') }}">
+                                <i class="step__icon fa fa-cog" aria-hidden="true"></i>
+                            </a>
+                        @else
+                            <i class="step__icon fa fa-cog" aria-hidden="true"></i>
+                        @endif
+                    </li>
+                    <li class="step__divider"></li>
                     <li class="step__item {{ isActive('LaravelInstaller::applicationDetails')}}">
                         @if(Request::is('install/application-details') )
                             <a href="{{ route('LaravelInstaller::applicationDetails') }}">
@@ -36,16 +46,6 @@
                             </a>
                         @else
                             <i class="step__icon fa fa-info-circle" aria-hidden="true"></i>
-                        @endif
-                    </li>
-                    <li class="step__divider"></li>
-                    <li class="step__item {{ isActive('LaravelInstaller::environment')}} {{ isActive('LaravelInstaller::environmentWizard')}} {{ isActive('LaravelInstaller::environmentClassic')}}">
-                        @if(Request::is('install/environment/wizard') || Request::is('install/environment/classic') || Request::is('install/application-details'))
-                            <a href="{{ route('LaravelInstaller::environment') }}">
-                                <i class="step__icon fa fa-cog" aria-hidden="true"></i>
-                            </a>
-                        @else
-                            <i class="step__icon fa fa-cog" aria-hidden="true"></i>
                         @endif
                     </li>
                     <li class="step__divider"></li>

@@ -2,11 +2,15 @@
 
 namespace Delwathon\LaravelInstaller\Controllers;
 
+use App\Models\Employee;
+use App\Models\GlobalSetting;
+use App\Models\User;
 use Illuminate\Routing\Controller;
 use Delwathon\LaravelInstaller\Events\LaravelInstallerFinished;
 use Delwathon\LaravelInstaller\Helpers\EnvironmentManager;
 use Delwathon\LaravelInstaller\Helpers\FinalInstallManager;
 use Delwathon\LaravelInstaller\Helpers\InstalledFileManager;
+use Modules\Academics\Entities\Session;
 
 class FinalController extends Controller
 {
@@ -25,6 +29,53 @@ class FinalController extends Controller
         $finalEnvFile = $environment->getEnvContent();
 
         event(new LaravelInstallerFinished);
+
+        // set the details
+        $details = session('application_details');
+        GlobalSetting::create([
+            'name' => $details->school_name,
+            'title' => $details->site_title,
+            'description' => $details->site_desc,
+            'keywords' => $details->site_keywords,
+            'mobile' => $details->support_phone,
+            'email' => $details->support_email,
+            'currency_id' => $details->currency,
+        ]);
+
+        $user = User::create([
+            'firstname' => $details->owner_fname,
+            'lastname' => $details->owner_lname,
+            'email' => $details->app_email,
+            'password' => $details->app_password,
+        ]);
+
+        Employee::create([
+            'user_id' => $user->id,
+            'gender' => $details->owner_gender,
+            'phone' => $details->owner_phone
+        ]);
+        $user->assignRole(2);
+
+        Session::create([
+            'name' => $details->session,
+            'status' => 'active'
+        ]);
+
+        $session = explode("/", $details->session);
+        $s_session = intval($session[0]);
+        $e_session = intval($session[1]);
+
+        for ($i = 1; $i < 10; $i ++) {
+            Session::create([
+            'name' => strval($s_session + $i) . "/" . strval($e_session + $i),
+            'status' => 'inactive'
+            ]);
+        }
+        function makeSession () {
+
+        }
+
+        session()->forget('application_details');
 
         return view('vendor.installer.finished', compact('finalMessages', 'finalStatusMessage', 'finalEnvFile'));
     }
