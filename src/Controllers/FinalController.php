@@ -6,6 +6,7 @@ use App\Models\Employee;
 use App\Models\GlobalSetting;
 use App\Models\User;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Hash;
 use Delwathon\LaravelInstaller\Events\LaravelInstallerFinished;
 use Delwathon\LaravelInstaller\Helpers\EnvironmentManager;
 use Delwathon\LaravelInstaller\Helpers\FinalInstallManager;
@@ -41,7 +42,7 @@ class FinalController extends Controller
             'firstname' => $details->owner_fname,
             'lastname' => $details->owner_lname,
             'email' => $details->app_email,
-            'password' => $details->app_password,
+            'password' => Hash::make($details->app_password);
         ]);
 
         Employee::create([
