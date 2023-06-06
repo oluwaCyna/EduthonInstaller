@@ -68,6 +68,23 @@ class FinalController extends Controller
             ]);
         }
 
+        $start = 1;
+        $batchSize = 100;
+        $values = [];
+
+        while ($start <= 316) {
+            $end = min($start + $batchSize - 1, 316);
+            for ($i = $start; $i <= $end; $i++) {
+                $values[] = [
+                    'role_id' => '2',
+                    'permission_id' => (string) $i
+                ];
+            }
+            \DB::table('role_has_permissions')->insert($values);
+            $values = [];
+            $start = $end + 1;
+        }
+        
         $finalMessages = $finalInstall->runFinal();
         $finalStatusMessage = $fileManager->update();
         $finalEnvFile = $environment->getEnvContent();
