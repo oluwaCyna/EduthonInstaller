@@ -1,35 +1,61 @@
 @extends('vendor.installer.layouts.master')
 
-@section('template_title')
-    {{ trans('installer_messages.permissions.templateTitle') }}
+@section('sidenav1')
+<div class="sidenav1">
+    <div class="innerdiv2">
+        <img src="{{ asset('assets/logowhitelogo.png') }}" alt="" class="mainlogo">
+        <p class="sidenavtext2">Installer</p>
+
+        <p class="listedoptions"><i class='bx bx-check active'></i> Install</p>
+        <p class="listedoptions"><i class='bx bx-check active'></i> Software License Agreement</p>
+        <p class="listedoptions"><i class='bx bx-check active'></i> Verify Purchase Code</p>
+        <p class="listedoptions"><i class='bx bx-check active'></i> Server Requirement</p>
+        <p class="listedoptions"><i class='bx bx-check listicon'></i> Permissions</p>
+        <p class="listedoptions"><i class='bx bx-check listicon'></i> Pre-Data</p>
+        <p class="listedoptions"><i class='bx bx-check listicon'></i> Configuration</p>
+        <p class="listedoptions"><i class='bx bx-check listicon'></i> Installation Complete</p>
+
+        <p class="listedoptions2"><i class='bx bx-question-mark listicon2'></i> Support</p>
+    </div>            
+</div>
 @endsection
 
-@section('title')
-    <i class="fa fa-key fa-fw" aria-hidden="true"></i>
-    {{ trans('installer_messages.permissions.title') }}
-@endsection
+@section('section4')
 
-@section('container')
+<div class="section4">
+    <img src="{{ asset('assets/vector4.png') }}" alt="" class="image11">
+    <img src="{{ asset('assets/vector2.png') }}" alt="" class="image22">
+    <img src="{{ asset('assets/vector6.png') }}" alt="" class="image33">
+    <h4 class="sec4h4">Permissions</h4>
+    <hr class="sec3hr">
 
-    <ul class="list">
-        @foreach($permissions['permissions'] as $permission)
-        <li class="list__item list__item--permissions {{ $permission['isSet'] ? 'success' : 'error' }}">
-            {{ $permission['folder'] }}
-            <span>
-                <i class="fa fa-fw fa-{{ $permission['isSet'] ? 'check-circle-o' : 'exclamation-circle' }}"></i>
-                {{ $permission['permission'] }}
-            </span>
-        </li>
-        @endforeach
-    </ul>
+    <table>
+        <tbody>
+            @foreach($permissions['permissions'] as $permission)
+            <tr>
+                <td class="sec4p">{{ $permission['folder'] }}</td>
+                <td class="sec4p2">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" {{ $permission['isSet'] ? 'checked' : '' }} disabled>
+                    <span>{{ $permission['permission'] }}</span>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+    
+    <!-- 333 -->
+    <div class="sec2btns">
+        <a href="{{ route('LaravelInstaller::requirements') }}" class="sec1btn">Previous</a>
 
-    @if ( ! isset($permissions['errors']))
+        @if ( ! isset($permissions['errors']))
         <div class="buttons">
-            <a href="{{ route('LaravelInstaller::applicationDetails') }}" class="button">
+            <a href="{{ route('LaravelInstaller::applicationDetails') }}" class="button sec1btn2">
                 {{ trans('installer_messages.permissions.next') }}
-                <i class="fa fa-angle-right fa-fw" aria-hidden="true"></i>
+                <i class='bx bx-right-arrow-alt' id="icon11"></i>
             </a>
         </div>
     @endif
+    </div>
+</div>
 
 @endsection

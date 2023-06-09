@@ -42,7 +42,7 @@ class ApplicationDetailsController extends Controller
         // Store the valiadated details in cookies
         setcookie('application_details', json_encode($request->all()), time()+60*60*24*365);
 
-        return $redirect->route('LaravelInstaller::environment');
+        return $redirect->route('LaravelInstaller::environmentWizard');
     }
         
 }
