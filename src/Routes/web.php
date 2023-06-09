@@ -6,7 +6,7 @@ Route::group(['prefix' => 'install', 'as' => 'LaravelInstaller::', 'namespace' =
         'uses' => 'WelcomeController@welcome',
     ]);
 
-    Route::get('license ', [
+    Route::get('license', [
         'as' => 'license',
         'uses' => 'LicenseController@license',
     ]);
