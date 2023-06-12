@@ -90,8 +90,7 @@
             </tbody>
         </table>
         <!-- table2 end -->
-        <h6 class="sec3h62">Please make sure you have set the writable permission on the following</h6>
-        <p class="sec3p1">All required files and folders are writable</p>
+        
         <div class="sec2btns" style="margin-top: 10px;">
             <a href="{{ route('LaravelInstaller::purchase') }}" class="sec1btn">Previous</a>
             @if (!isset($requirements['errors']) && $phpSupportInfo['supported'])

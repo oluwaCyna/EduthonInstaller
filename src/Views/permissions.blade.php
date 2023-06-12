@@ -29,6 +29,8 @@
     <h4 class="sec4h4">Permissions</h4>
     <hr class="sec3hr">
 
+    <h6 class="sec3h62">Please make sure you have set the writable permission on the following</h6>
+        
     <table>
         <tbody>
             @foreach($permissions['permissions'] as $permission)
