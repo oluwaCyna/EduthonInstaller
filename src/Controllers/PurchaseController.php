@@ -31,11 +31,11 @@ class PurchaseController extends Controller
         $purchaseChecker = new PurchaseChecker($request);
 
         $rules = config('installer.purchase.form.rules');
-        $messages = [
-            'environment_custom.required_if' => trans('installer_messages.purchase.form.name_required'),
-        ];
+        // $messages = [
+        //     'environment_custom.required_if' => trans('installer_messages.purchase.form.name_required'),
+        // ];
 
-        $validator = Validator::make($request->all(), $rules, $messages);
+        $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
             return $redirect->route('LaravelInstaller::purchase')->withInput()->withErrors($validator->errors());
