@@ -245,7 +245,7 @@ return [
                 'support_phone_placeholder' => 'Enter school support phone number...',
                 'session_required' => 'Start Session is required.',
                 'session_label' => 'Start Session',
-                'session_placeholder' => 'Enter school start session like 2021/2022',
+                'session_placeholder' => 'Enter school start session like 2021-2022',
                 'currency_required' => 'Currency is required.',
                 'currency_label' => 'Currency',
                 'currency_label_none' => 'Select currency',

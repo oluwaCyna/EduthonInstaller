@@ -57,13 +57,13 @@ class FinalController extends Controller
             'status' => 'active'
         ]);
 
-        $session = explode("/", $details->session);
+        $session = explode("-", $details->session);
         $s_session = intval($session[0]);
         $e_session = intval($session[1]);
 
         for ($i = 1; $i < 10; $i++) {
             Session::create([
-                'name' => strval($s_session + $i) . "/" . strval($e_session + $i),
+                'name' => strval($s_session + $i) . "-" . strval($e_session + $i),
                 'status' => 'inactive'
             ]);
         }
