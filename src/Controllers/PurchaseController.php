@@ -51,7 +51,7 @@ class PurchaseController extends Controller
                 $data =  array(
                     'purchase_code' => $purchaseChecker->getPurchaseCode(),
                     'url' => request()->getHttpHost(),
-                    'client_id' => $secretKeyresponse->user_id
+                    'client_id' => $secretKeyresponse->user->id
                 );
 
                 try {
