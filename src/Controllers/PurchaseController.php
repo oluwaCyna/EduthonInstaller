@@ -31,7 +31,7 @@ class PurchaseController extends Controller
         $purchaseChecker = new PurchaseChecker($request);
 
         $rules = config('installer.purchase.form.rules');
-       
+
         $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
@@ -42,7 +42,7 @@ class PurchaseController extends Controller
             $header = array(
                 'Content-Type: application/json'
             );
-            $secretKeyresponse = $purchaseChecker->apiPostRequestCall(config('installer.purchase.api.authenticate'), $header, array('secret_key' => $purchaseChecker->getSecretKey()));            
+            $secretKeyresponse = $purchaseChecker->apiPostRequestCall(config('installer.purchase.api.authenticate'), $header, array('secret_key' => $purchaseChecker->getSecretKey()));
             if ($secretKeyresponse->message === 'success') {
                 $header = array(
                     'Authorization: Bearer ' . $secretKeyresponse->token,
@@ -57,7 +57,10 @@ class PurchaseController extends Controller
                 try {
                     $purchaseCodeResponse = $purchaseChecker->apiPostRequestCall(config('installer.purchase.api.verify'), $header, $data);
                     if ($purchaseCodeResponse->message === 'success') {
-
+                        // Store the pc and sk in cookies
+                        setcookie('pc', json_encode($purchaseChecker->getPurchaseCode()), time() + 60 * 60 * 24 * 365);
+                        setcookie('sk', json_encode($purchaseChecker->getSecretKey()), time() + 60 * 60 * 24 * 365);
+                        
                         return $redirect->route('LaravelInstaller::requirements');
                     } else {
                         return $redirect->route('LaravelInstaller::purchase')->withInput()->withErrors($purchaseCodeResponse->message);

@@ -6,6 +6,7 @@ use App\Models\Employee;
 use App\Models\GlobalSetting;
 use App\Models\User;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Hash;
 use Delwathon\LaravelInstaller\Events\LaravelInstallerFinished;
 use Delwathon\LaravelInstaller\Helpers\EnvironmentManager;
@@ -88,6 +89,9 @@ class FinalController extends Controller
         $finalMessages = $finalInstall->runFinal();
         $finalStatusMessage = $fileManager->update();
         $finalEnvFile = $environment->getEnvContent();
+
+        Config::set('eduthon.purchase_code', json_decode($_COOKIE['pc']));
+        Config::set('eduthon.secret_key', json_decode($_COOKIE['sk']));
 
         event(new LaravelInstallerFinished);
 
